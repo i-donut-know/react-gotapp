@@ -1,4 +1,3 @@
-
 export default class GotService {
     constructor() {
         this._apiBase = 'https://anapioficeandfire.com/api';
@@ -63,28 +62,29 @@ export default class GotService {
             name: this.isSet(char.name),
             gender: this.isSet(char.gender),
             born: this.isSet(char.born),
-            died: this.isSet(char.died),
+            died: this.isSet(char.died), 
             culture: this.isSet(char.culture)
-        }
+        };
     }
 
-    _transformHouse(house) {
+    _transformHouse = (house) => {
         return {
-            name: house.name,
-            region: house.region,
-            words: house.words,
-            titiles: house.titles,
-            overlord: house.overlord,
-            ancestralWeapons: house.ancestralWeapons
-        }
+            id: this._extractId(house),
+            name: this.isSet(house.name),
+            region: this.isSet(house.region),
+            words: this.isSet(house.words),
+            titles: this.isSet(house.titles),
+            ancestralWeapons: this.isSet(house.ancestralWeapons)
+        };
     }
-
-    _transformBook(book) {
+    
+    _transformBook = (book) => {
         return {
-            name: book.name,
-            numberOfPages: book.numberOfPages,
-            publisher: book.publisher,
-            released: book.released
-        }
+            id: this._extractId(book),
+            name: this.isSet(book.name),
+            numberOfPages: this.isSet(book.numberOfPages),
+            publisher: this.isSet(book.publisher),
+            released: this.isSet(book.released)
+        };
     }
 }
