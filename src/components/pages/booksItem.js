@@ -7,13 +7,13 @@ export default class BooksItem extends Component {
 
     render() {
         return (
-            <itemDetails 
+            <ItemDetails 
                 itemId={this.props.bookId}
                 getData={this.gotService.getBook}>
                 <Field field='numberOfPages' label='Number of pages'/>
                 <Field field='publicher' label='Publisher' />
                 <Field field='released' label='Released' />
-            </itemDetails>
+            </ItemDetails>
         )
     }
 }
